@@ -24,6 +24,13 @@ jobs:
         dune build
       env:
         PREFIX: /usr/lib/x86_64-linux-gnu
+    - name: Run ocaml tests
+      run: |
+        eval `opam env`
+        dune runtest --debug-backtraces 2>&1
+      env:
+        PREFIX: /usr/lib/x86_64-linux-gnu
+        OCAMLRUNPARAM: b
 
   build-macos:
 
@@ -43,5 +50,11 @@ jobs:
       run: |
         eval `opam env`
         dune build
+      env:
+        PREFIX: /usr/local/lib
+    - name: Run ocaml tests
+      run: |
+        eval `opam env`
+        dune runtest
       env:
         PREFIX: /usr/local/lib

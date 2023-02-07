@@ -1,6 +1,6 @@
 (env
   (dev
-    (flags (:standard -w -33))))
+    (flags (:standard -w -33 -g))))
 
 (rule
  (targets GLib-2.0.xml)
